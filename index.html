@@ -12,32 +12,76 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
-<body>
-    <!-- Header Content -->
-    <header>
-        <h1>Todo List Website - Vina</h1>
-    </header>
+<body class="bg-emerald-100 text-white">
 
     <!--Main Content  -->
-    <main>
-        <!-- Form Section -->
-        <section>
-            <form>
-                <!-- Todo Input -->
-                <input type="text" id="todo-input" placeholder="Enter a new todo list">
+    <main class="min-h-screen flex items-center justify-center p-6">
+        <div class="bg-emerald-700/90 p-8 rounded-2xl w-full max-w-xl shadow-xl">
+            <!-- Header Content -->
+            <header class="mb-6">
+                <h1 class="text-3xl font-bold text-center text-emerald-180 mb-4">Todo List Website - Vina</h1>
+                <hr class="border-emerald-300">
+            </header>
 
-                <!-- Todo Date -->
-                <input type="date" id="todo-date" placeholder="Enter due date">
-            </form>
+            <!-- Form Section -->
+            <section class="space-y-4">
+                <form class="flex gap-3">
+                    <!-- Todo Input -->
+                    <input class="flex-grow p-3 rounded-lg bg-emerald-900/40 text-white 
+                    placeholder-emerald-200 border border-emerald-400 
+                    focus:outline-none focus:ring-2 focus:ring-white" type="text" id="todo-input" 
+                    placeholder="Add your to do list ...">
+
+                    <!-- Todo Date -->
+                    <input class="p-3 rounded-lg bg-emerald-900/40 text-white
+                    border border-emerald-400 focus:outline-none" type="date" id="todo-date" placeholder="Enter due date">
+
+                    <!-- Add Button -->
+                    <button class="bg-teal-900  hover:bg-teal-400 text-white px-6 py-3 rounded-lg font-bold transition-all  
+                    shadow-md"type="submit">Add</button>
+                </form>
+
+                <div class="flex justify-between items-center py-2">
+                    <!-- Filter Button -->
+                    <select id="status-filter" class="bg-teal-900/30 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold border border-emerald-400/30 transition-all outline-none cursor-pointer">
+                        <option value="Semua" class="bg-emerald-800">Filter: Semua</option>
+                        <option value="Belum Dikerjakan" class="bg-emerald-800">Belum Dikerjakan</option>
+                        <option value="Sudah Dikerjakan" class="bg-emerald-800">Sudah Dikerjakan</option>
+                    </select>
+
+                    <!-- Detele All Button -->
+                    <button id="btn-hapus-semua" class="bg-teal-900/30  hover:bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold  
+                    shadow-md transition-all"type="button">Hapus Semua</button>
+                </div>
+            </section>
+            <div class="mt-6 bg-emerald-900/20 rounded-xl overflow-hidden border border-emerald-400/20">
+                <!-- Tabel untuk menampilkan data yang sudah ditambahkan -->
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-emerald-900/40 text-xs font-bold uppercase tracking-wider text-emerald-100">
+                        <tr>
+                            <th class="p-4">Task</th>
+                            <th class="p-4 text-center">Due Date</th>
+                            <th class="p-4 text-center">Status</th>
+                            <th class="p-4 text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todo-list-body" class="text-sm">
+                    </tbody>
+                </table>
+
+                <div id="no-task-message" class="p-10 text-center text-emerald-200 italic border-t border-emerald-400/10">
+                    No task found
+                </div>
+            </div>
             
-            <!-- Add Button -->
-             <button type="button">Add Todo</button>
-        </section>
-        
+            <!-- Footer Content -->
+            <footer class="mt-8 text-center text-white text-xs">
+                2025 || Vina Project
+            </footer>
+        </div> 
     </main>
 
-    <!-- Footer Content -->
-    <footer></footer>
+    
 
     <!-- JS External -->
      <script src="js/script.js"></script>
